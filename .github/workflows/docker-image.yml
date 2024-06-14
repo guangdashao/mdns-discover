@@ -32,7 +32,7 @@ jobs:
       with:
         ref: ${{ github.ref }}
         check-name: 'build-and-release-container'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        # repo-token: ${{ secrets.GITHUB_TOKEN }}
         wait-interval: 10
 
     # - name: Extract build artifact - i386
@@ -71,13 +71,13 @@ jobs:
     #     name: mdns-discover-linux-amd64-latest.tar.xz
     #     path: mdns-discover-linux-amd64-latest.tar.xz
 
-    - name: Extract build artifact from build container - arm64
-      uses: bbusse/actions-docker-extract@latest
-      id: extract_arm64
-      with:
-        image: "ghcr.io/bbusse/mdns-discover-build:latest"
-        path: "tmp/mdns-discover/mdns-discover"
-        platform: linux/arm64
+    # - name: Extract build artifact from build container - arm64
+    #   uses: bbusse/actions-docker-extract@latest
+    #   id: extract_arm64
+    #   with:
+    #     image: "ghcr.io/bbusse/mdns-discover-build:latest"
+    #     path: "tmp/mdns-discover/mdns-discover"
+    #     platform: linux/arm64
 
     - name: Compress build artifact - arm64
       run: |
